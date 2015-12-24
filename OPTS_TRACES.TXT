@@ -1,0 +1,45 @@
+CONFIG: defaults
+----------------
+Configuration of package `simgrid':
+        BUILDNAME ...................: UNIX
+        SITE ........................: Linux_4.1.12-boot2docker_x86_64
+        Release .....................: simgrid-3.12 (release build)
+
+        Compiler: C .................: /usr/bin/cc (GNU)
+                version .............: 4.8.4
+        Compiler: C++ ...............: /usr/bin/c++ (GNU)
+                version .............: 4.8.4
+        Linker: .....................: /usr/bin/ld
+                version .............: 2.24
+
+        CFlags ......................:  -g3 -std=gnu11   -O3 -funroll-loops -fno-strict-aliasing  -finline-functions  -flto  
+        CXXFlags ....................:  -g3 -std=gnu++11 -O3 -funroll-loops -fno-strict-aliasing  -finline-functions  -flto 
+        LDFlags .....................: 
+        with LTO ....................: ON
+
+        Compile NS-3 ................: NO  (hint: )
+        Compile Java ................: NO
+        Compile Scala................: 
+        Compile Lua .................: 
+        Compile Smpi ................: 1
+        Compile MPI testsuite .......: OFF
+        Compile Smpi f77 ............: 0
+        Compile Smpi f90 ............: 0
+        Compile Boost.Context support: 1
+        Compile Static ..............: OFF
+
+        Maintainer mode .............: OFF
+        Documentation................: ON
+        Model checking ..............: 0
+        Tracing mode ................: ON
+        Jedule  mode ................: OFF
+        Latency bound ...............: OFF
+        Graphviz mode ...............: 
+        Sigc++ mode .................: 0
+        Mallocators .................: ON
+
+        Simgrid dependencies ........: -lm /usr/lib/x86_64-linux-gnu/libboost_context.so -pthread -lrt
+
+        INSTALL_PREFIX ..............: /opt/simgrid
+
+

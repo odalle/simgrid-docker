@@ -1,0 +1,43 @@
+# SIMGRID prebuild Docker image.
+# Author: O. Dalle
+#
+# Description:
+# An compile-ready image with all required dependencies to build SG
+# with java bindings enabled.
+# This image can be used either as-is to build SG (ie. an image with
+# compiled SG) or as a base layer for another prebuild image with
+# more SG extensions.
+#
+# DOCKER VM SETTINGS & REQUIREMENTS:
+# 1. Needs a specific boot2docker version to prevent build to hang on
+# installing java certificates:
+# => Build a new vm, and give it a name, eg. "pickaname":
+# $ docker-machine create -d "virtualbox" --virtualbox-boot2docker-url=https://github.com/boot2docker/boot2docker/releases/download/v1.9.0/boot2docker.iso pickaname
+# 
+# 2. SIMGRID is happy with lots of RAM
+# => Add memory size option to above command, eg. 4096M (default 1024M):
+# $ docker-machine [...same as above...] --virtualbox-memory=4096
+#
+# 3. Set env so that next docker command work with this new VM
+# $ eval "$(docker-machine env pickaname)"
+#
+# TODO: produce a static version of this image, in which all
+# dependency versions are explicited, such that this image because
+# "long-term reproducible"
+
+
+FROM ubuntu:14.04
+
+RUN export DISPLAY=:0.0 && \
+    apt-get update && apt-get install -y \
+    gcc-4.8 \
+    g++-4.8 \
+    g++ \
+    cmake \
+    git \
+    libboost-context-dev \
+    libboost-dev \
+    openjdk-7-jdk \
+    doxygen \
+    transfig
+    

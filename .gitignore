@@ -1,0 +1,7 @@
+Makefile
+.default_*
+.prebuild
+.machine
+.check_machine
+*.pyc
+*~
