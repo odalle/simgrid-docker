@@ -25,7 +25,10 @@ Some Cons:
 
 1. [Install docker](https://docs.docker.com/engine/installation/) and check that it works (hello world)
 2. Install gnumake on your OS if necessary
-2. Clone the content of the directory where you found this README
+2. Clone the content of the directory where you found this README:
+```shell
+git clone https://github.com/odalle/simgrid-docker.git
+```
 3. Edit the config section of the Makefile according to your needs (or keep defaults). 
 3. run `make` to see makefile targets.
 4. For example, run `make run` to build all in one shot:
