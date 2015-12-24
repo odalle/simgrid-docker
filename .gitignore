@@ -5,3 +5,4 @@ Makefile
 .check_machine
 *.pyc
 *~
+.docker_env
