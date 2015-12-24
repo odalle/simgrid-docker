@@ -37,6 +37,21 @@ git clone https://github.com/odalle/simgrid-docker.git
    * Install and compile simgrid
    * Open a shell in newly creatyed image
 
+## Usage
+
+As mentioned above, `make run` will build all from scratch and start a
+new shell within the simgrid container.
+
+The first time you run the command it takes quite a long time since it
+triggers a full build from scratch. Subsequent executions `make run` are
+instantaneaous, unless you destroy or switch docker-machine.
+
+For convenience the image automatically mounts your homedir on the
+host so you can easily persist data on your user account.
+
+Remember that everything you write elsewhere in the container will be lost
+when you exit. (Which is also helpful to quickly erase and restart from
+scratch, eg. for testing)
 
 ## TODO
 * Untested yet in Linux and Windows environment.
