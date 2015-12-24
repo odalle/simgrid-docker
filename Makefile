@@ -43,7 +43,7 @@ BOOT2DOCKER_URL= https://github.com/boot2docker/boot2docker/releases/download/v1
 
 .PHONY: default run java check_machine default_$(VERSION_ID) java_$(VERSION_ID) prebuild clean run_$(VERSION_ID) docker_env
 
-include .docker_env
+-include .docker_env
 
 help: check-machine
 	@echo "This is a (gnu)Makefile. Main targets:"
@@ -68,7 +68,7 @@ check-machine: .check_machine
 
 machine .docker_env:
 	docker-machine create --driver virtualbox --virtualbox-boot2docker-url=$(BOOT2DOCKER_URL) --virtualbox-memory $(VBOX_MEM_SIZE) --virtualbox-cpu-count $(VBOX_NUM_CPUS) $(MACHINE_NAME)
-	docker-machine env $(MACHINE_NAME) > .docker_env
+	docker-machine env $(MACHINE_NAME) | tr -d '"' > .docker_env
 
 simgrid-$(GIT_VERSION_TAG):
 	git clone -b $(GIT_VERSION_TAG) --single-branch git://scm.gforge.inria.fr/simgrid/simgrid.git $@
@@ -91,7 +91,7 @@ clean_$(VERSION_ID):
 	rm -rf simgrid-$(GIT_VERSION_TAG) *~
 
 clean:	clean_$(VERSION_ID)
-	rm -f .prebuild .default_* *~ .check_machine *.pyc
+	rm -f .prebuild .default_* *~ .check_machine *.pyc .docker_env
 
 run: run_$(VERSION_ID)
 
